@@ -1,10 +1,10 @@
-# file: hostname/tasks/main.yml
-
-- name: Hostname | Update the hostname (pt. 1) - hostname cmd
+---
+# tasks file for hostname
+- name: update the hostname - hostname module
   hostname:
     name: "{{inventory_hostname_short}}"
 
-- name: Hostname | Update the hostname (pt. 2) - (/etc/hostname)
+- name: update the hostname - /etc/hostname file
   copy:
     content: "{{inventory_hostname_short}}"
     dest: /etc/hostname
@@ -12,7 +12,7 @@
     group: root
     mode: 0644
 
-- name: Hostname | Update the hostname (pt. 3) - (/etc/hosts)
+- name: update the hostname - /etc/hosts file
   lineinfile:
     dest: /etc/hosts
     regexp: "^127.0.0.1"
