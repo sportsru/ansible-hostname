@@ -2,19 +2,20 @@
 # tasks file for hostname
 - name: update the hostname - hostname module
   hostname:
-    name: "{{inventory_hostname_short}}"
+    name: "{{ inventory_hostname }}"
 
 - name: update the hostname - /etc/hostname file
-  copy:
-    content: "{{inventory_hostname_short}}"
+  template:
+    src: hostname.j2
     dest: /etc/hostname
     owner: root
     group: root
     mode: 0644
 
 - name: update the hostname - /etc/hosts file
-  lineinfile:
+  template:
+    src: hosts.j2
     dest: /etc/hosts
-    regexp: "^127.0.0.1"
-    line: "127.0.0.1{{'\t'}}{{inventory_hostname}}{% if inventory_hostname != inventory_hostname_short %}{{'\t'}}{{inventory_hostname_short}}{% endif %}{{'\t'}}localhost"
-    state: present
+    owner: root
+    group: root
+    mode: 0644
