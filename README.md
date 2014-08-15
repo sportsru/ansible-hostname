@@ -65,6 +65,10 @@ ff02::3 ip6-allhosts
 
 MIT
 
+#### Author Information
+
+Mischa ter Smitten (based on work of Ansibles)
+
 #### Feedback, bug-reports, requests, ...
 
 Are [welcome](https://github.com/Oefenweb/ansible-hostname/issues)!
