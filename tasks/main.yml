@@ -7,7 +7,7 @@
 
 - name: update the hostname - /etc/hostname file
   template:
-    src: hostname.j2
+    src: etc/hostname.j2
     dest: /etc/hostname
     owner: root
     group: root
@@ -16,7 +16,7 @@
 
 - name: update the hostname - /etc/hosts file
   template:
-    src: hosts.j2
+    src: etc/hosts.j2
     dest: /etc/hosts
     owner: root
     group: root
