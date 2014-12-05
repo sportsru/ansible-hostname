@@ -1,4 +1,6 @@
-## hostname [![Build Status](https://travis-ci.org/Oefenweb/ansible-hostname.png)](https://travis-ci.org/Oefenweb/ansible-hostname)
+## hostname
+
+[![Build Status](https://travis-ci.org/Oefenweb/ansible-hostname.png)](https://travis-ci.org/Oefenweb/ansible-hostname) [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-hostname-blue.svg)](https://galaxy.ansible.com/list#/roles/1343)
 
 Set or update the hostname in Debian-like systems.
 
