@@ -2,7 +2,7 @@
 # tasks file for hostname
 - name: update the hostname - hostname module
   hostname:
-    name: "{{ inventory_hostname }}"
+    name: "{{ inventory_hostname_short }}"
   tags: [configuration, hostname]
 
 - name: update the hostname - /etc/hostname file
