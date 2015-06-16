@@ -42,7 +42,7 @@ total 4
 ```yaml
 hostname_additional_hosts:
   - {ip_address: 1.2.3.4, hostname: a.example.com}
-  - {ip_address: 5.6.7.8, hostname: b.example.com, , hostname_short: b}
+  - {ip_address: 5.6.7.8, hostname: b.example.com, hostname_short: b}
 ```
 
 This will create the following **/etc/hosts** file:
