@@ -1,6 +1,6 @@
 ## hostname
 
-[![Build Status](https://travis-ci.org/Oefenweb/ansible-hostname.png)](https://travis-ci.org/Oefenweb/ansible-hostname) [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-hostname-blue.svg)](https://galaxy.ansible.com/list#/roles/1343)
+[![Build Status](https://travis-ci.org/Oefenweb/ansible-hostname.png)](https://travis-ci.org/Oefenweb/ansible-hostname) [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-hostname-blue.svg)](https://galaxy.ansible.com/tersmitten/hostname)
 
 Set or update the hostname in Debian-like systems.
 
@@ -41,8 +41,11 @@ total 4
 **foo.bar.com.yml** could look like this:
 ```yaml
 hostname_additional_hosts:
-  - {ip_address: 1.2.3.4, hostname: a.example.com}
-  - {ip_address: 5.6.7.8, hostname: b.example.com, hostname_short: b}
+  - ip_address: 1.2.3.4
+    hostname: a.example.com
+  - ip_address: 5.6.7.8
+    hostname: b.example.com
+    hostname_short: b
 ```
 
 This will create the following **/etc/hosts** file:
@@ -69,7 +72,7 @@ MIT
 
 #### Author Information
 
-Mischa ter Smitten (based on work of Ansibles)
+Mischa ter Smitten (based on work of [ANXS](https://github.com/ANXS))
 
 #### Feedback, bug-reports, requests, ...
 
