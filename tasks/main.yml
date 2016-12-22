@@ -3,7 +3,10 @@
 - name: update the hostname - hostname module
   hostname:
     name: "{{ inventory_hostname_short }}"
-  tags: [configuration, hostname]
+  tags:
+    - configuration
+    - hostname
+    - hostname-update-hostname
 
 - name: update the hostname - /etc/hostname file
   template:
@@ -12,7 +15,11 @@
     owner: root
     group: root
     mode: 0644
-  tags: [configuration, hostname]
+  tags:
+    - configuration
+    - hostname
+    - hostname-update-hostname
+    - hostname-update-hostname-file
 
 - name: update the hostname - /etc/hosts file
   template:
@@ -21,4 +28,7 @@
     owner: root
     group: root
     mode: 0644
-  tags: [configuration, hostname]
+  tags:
+    - configuration
+    - hostname
+    - hostname-update-hosts-file
