@@ -12,9 +12,17 @@ None
 
 This role depends on your ansible hosts inventory.
 
-Add the hosts to your inventory with their FQDN (e.g. foo.bar.com), and the role will take care of setting your hostname accordingly (hostname: foo, FQDN: foo.bar.com).
+Add the hosts to your inventory with their `FQDN` (e.g. `foo.bar.com`), and the role will take care of setting your hostname accordingly (`hostname`: `foo`, `FQDN`: `foo.bar.com`).
 
-If you just name it with the hostname in the inventory, it will similarly work (hostname set, but no FQDN attached to it).
+If you just name it with the hostname in the inventory, it will similarly work (`hostname` set, but no `FQDN` attached to it).
+
+* `hostname_hostname`: [default: `"{{ inventory_hostname }}"`]: FQDN
+* `hostname_hostname_short`: [default: `"{{ inventory_hostname_short }}"`]: Hostname
+* `hostname_additional_hosts`: [default: `[]`]: Hosts declaration
+* `hostname_additional_hosts.{n}.ip_address`: [required]: IP address
+* `hostname_additional_hosts.{n}.hostname`: [required]: FQDN
+* `hostname_additional_hosts.{n}.hostname_short`: [required]: Hostname
+* `hostname_use_full`: [default: `false`]: If set to `true` `hostname` equal `FQDN`
 
 ## Dependencies
 

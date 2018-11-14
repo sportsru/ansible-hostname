@@ -3,3 +3,4 @@
 hostname_hostname: "{{ inventory_hostname }}"
 hostname_hostname_short: "{{ inventory_hostname_short }}"
 hostname_additional_hosts: []
+hostname_use_full: false
