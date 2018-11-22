@@ -2,7 +2,7 @@
 ---
 - name: update the hostname - hostname module
   hostname:
-    name: "{{ hostname_hostname if hostname_use_full else hostname_hostname_short }}"
+    name: "{{ hostname_hostname if hostname_hostname_use_full else hostname_hostname_short }}"
   tags:
     - configuration
     - hostname
