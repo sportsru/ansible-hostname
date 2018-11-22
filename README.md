@@ -18,11 +18,12 @@ If you just name it with the hostname in the inventory, it will similarly work (
 
 * `hostname_hostname`: [default: `"{{ inventory_hostname }}"`]: FQDN
 * `hostname_hostname_short`: [default: `"{{ inventory_hostname_short }}"`]: Hostname
+* `hostname_hostname_use_full`: [default: `false`]: If set to `true` `hostname` equal `FQDN`
+* `hostname_hostname_ip_address`: [default: `127.0.1.1`]: `FQDN` and `shortname` resolve to `hostname_hostname_ip_address`
 * `hostname_additional_hosts`: [default: `[]`]: Hosts declaration
 * `hostname_additional_hosts.{n}.ip_address`: [required]: IP address
 * `hostname_additional_hosts.{n}.hostname`: [required]: FQDN
 * `hostname_additional_hosts.{n}.hostname_short`: [required]: Hostname
-* `hostname_use_full`: [default: `false`]: If set to `true` `hostname` equal `FQDN`
 
 ## Dependencies
 
