@@ -1,6 +1,7 @@
 ## hostname
 
-[![Build Status](https://travis-ci.org/Oefenweb/ansible-hostname.png)](https://travis-ci.org/Oefenweb/ansible-hostname) [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-hostname-blue.svg)](https://galaxy.ansible.com/Oefenweb/hostname)
+[![Build Status](https://travis-ci.org/Oefenweb/ansible-hostname.png)](https://travis-ci.org/Oefenweb/ansible-hostname)
+[![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-hostname-blue.svg)](https://galaxy.ansible.com/Oefenweb/hostname)
 
 Set or update the hostname in Debian-like systems.
 
@@ -24,6 +25,8 @@ If you just name it with the hostname in the inventory, it will similarly work (
 * `hostname_additional_hosts.{n}.ip_address`: [required]: IP address
 * `hostname_additional_hosts.{n}.hostname`: [required]: FQDN
 * `hostname_additional_hosts.{n}.hostname_short`: [required]: Hostname
+
+* `hostname_use_strategy`: [optional]: Which strategy to use to update the hostname (Ansible `>= 2.9`)
 
 ## Dependencies
 

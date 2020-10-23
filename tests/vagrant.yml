@@ -5,3 +5,6 @@
   become: true
   roles:
     - ../../
+#  vars:
+#    # See: https://github.com/ansible/ansible/issues/63354
+#    hostname_use_strategy: systemd

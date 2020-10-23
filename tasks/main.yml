@@ -3,6 +3,7 @@
 - name: update the hostname - hostname module
   hostname:
     name: "{{ hostname_hostname if hostname_hostname_use_full else hostname_hostname_short }}"
+    use: "{{ hostname_use_strategy | default(omit) }}"
   tags:
     - configuration
     - hostname
