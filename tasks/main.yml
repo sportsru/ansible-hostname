@@ -1,5 +1,16 @@
 # tasks file for hostname
 ---
+- name: install dependencies
+  apt:
+    name: "{{ hostname_dependencies }}"
+    state: "{{ apt_install_state | default('latest') }}"
+    update_cache: true
+    cache_valid_time: "{{ apt_update_cache_valid_time | default(3600) }}"
+  tags:
+    - configuration
+    - hostname
+    - hostname-dependencies
+
 - name: update the hostname - hostname module
   hostname:
     name: "{{ hostname_hostname if hostname_hostname_use_full else hostname_hostname_short }}"
