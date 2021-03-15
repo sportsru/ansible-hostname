@@ -1,6 +1,7 @@
-# meta file for hostname
+# meta file
 ---
 galaxy_info:
+  namespace: oefenweb
   role_name: hostname
   author: Mischa ter Smitten
   company: Oefenweb.nl B.V.
