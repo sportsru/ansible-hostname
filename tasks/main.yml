@@ -1,7 +1,7 @@
 # tasks file
 ---
 - name: install dependencies
-  apt:
+  ansible.builtin.apt:
     name: "{{ hostname_dependencies }}"
     state: "{{ apt_install_state | default('latest') }}"
     update_cache: true
@@ -12,7 +12,7 @@
     - hostname-dependencies
 
 - name: update the hostname - hostname module
-  hostname:
+  ansible.builtin.hostname:
     name: "{{ hostname_hostname if hostname_hostname_use_full else hostname_hostname_short }}"
     use: "{{ hostname_use_strategy | default(omit) }}"
   tags:
@@ -21,7 +21,7 @@
     - hostname-update-hostname
 
 - name: update the hostname - /etc/hostname file
-  template:
+  ansible.builtin.template:
     src: etc/hostname.j2
     dest: /etc/hostname
     owner: root
@@ -34,7 +34,7 @@
     - hostname-update-hostname-file
 
 - name: update the hostname - /etc/hosts file
-  template:
+  ansible.builtin.template:
     src: etc/hosts.j2
     dest: /etc/hosts
     owner: root
@@ -46,7 +46,7 @@
     - hostname-update-hosts-file
 
 - name: update the hostname/domain facts
-  set_fact:
+  ansible.builtin.set_fact:
     ansible_domain: "{{ hostname_hostname.split('.', 1)[1] }}"
     ansible_fqdn: "{{ hostname_hostname }}"
   when: ansible_fqdn != hostname_hostname
