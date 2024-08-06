@@ -1,27 +1,15 @@
-# tasks file
+# tasks file for hostname
 ---
-- name: install dependencies
-  ansible.builtin.apt:
-    name: "{{ hostname_dependencies }}"
-    state: "{{ apt_install_state | default('latest') }}"
-    update_cache: true
-    cache_valid_time: "{{ apt_update_cache_valid_time | default(3600) }}"
-  tags:
-    - configuration
-    - hostname
-    - hostname-dependencies
-
 - name: update the hostname - hostname module
-  ansible.builtin.hostname:
+  hostname:
     name: "{{ hostname_hostname if hostname_hostname_use_full else hostname_hostname_short }}"
-    use: "{{ hostname_use_strategy | default(omit) }}"
   tags:
     - configuration
     - hostname
     - hostname-update-hostname
 
 - name: update the hostname - /etc/hostname file
-  ansible.builtin.template:
+  template:
     src: etc/hostname.j2
     dest: /etc/hostname
     owner: root
@@ -34,7 +22,7 @@
     - hostname-update-hostname-file
 
 - name: update the hostname - /etc/hosts file
-  ansible.builtin.template:
+  template:
     src: etc/hosts.j2
     dest: /etc/hosts
     owner: root
@@ -44,13 +32,3 @@
     - configuration
     - hostname
     - hostname-update-hosts-file
-
-- name: update the hostname/domain facts
-  ansible.builtin.set_fact:
-    ansible_domain: "{{ hostname_hostname.split('.', 1)[1] }}"
-    ansible_fqdn: "{{ hostname_hostname }}"
-  when: ansible_fqdn != hostname_hostname
-  tags:
-    - configuration
-    - hostname
-    - hostname-update-facts

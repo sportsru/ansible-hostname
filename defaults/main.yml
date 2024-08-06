@@ -1,4 +1,4 @@
-# defaults file
+# defaults file for hostname
 ---
 hostname_hostname: "{{ inventory_hostname }}"
 hostname_hostname_short: "{{ inventory_hostname_short }}"
